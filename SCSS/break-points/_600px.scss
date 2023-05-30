@@ -1,0 +1,147 @@
+@use "../general-styles/colors"as clrs;
+@use "../general-styles/padding"as pad;
+@use "../general-styles/typography"as type;
+@use "../general-styles/gradients"as grad;
+
+@media screen and (max-width:600px) {
+
+    .header {
+        gap: calc(10rem + 6vw);
+
+        &__nav {
+
+            &--cta {
+                display: none;
+            }
+
+            &--links {
+                flex-basis: auto;
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                flex-direction: column;
+                background-image: grad.gradient(gradient-primary);
+                padding: pad.padding-d-v(l) pad.padding-d-h(l);
+                transform: translateX(-100rem) rotate(-0.5turn);
+                z-index: 10;
+            }
+
+            .display-nav {
+                transform: translateX(0) rotate(0);
+                transition: all .6s ease-in-out;
+            }
+
+            &--hamburger {
+                position: fixed;
+                right: 2rem;
+                width: 7rem;
+                height: 4rem;
+                background-image: grad.gradient(gradient-primary);
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                row-gap: 0.5rem;
+                flex-direction: column;
+                padding: 0 1rem;
+                border-radius: 0.5rem;
+                z-index: 11;
+
+                .line-1,
+                .line-2 {
+                    height: .2rem;
+                    background-color: clrs.color-theme("1");
+                    transition: all .3s ease-in-out;
+                }
+
+                .line-1 {
+                    width: 70%;
+                    align-self: flex-end;
+                }
+
+                .line-2 {
+                    width: 100%;
+                    align-self: center;
+                }
+
+                .line-1-toggled {
+                    transform: rotate(45deg) translateX(-0.5rem) translateY(1rem);
+                    width: 50%;
+                }
+
+                .line-2-toggled {
+                    transform: rotate(-45deg) translateX(0.4rem) translateY(-0.2rem);
+                    width: 50%;
+                }
+            }
+        }
+    }
+
+    .countdown {
+        padding: 0;
+
+        &__content {
+            flex-direction: column;
+            transform: translateY(0);
+            border-left: none;
+            border-right: none;
+            border-radius: 0;
+
+            &::before,
+            &::after {
+                width: 50%;
+            }
+
+            &::before {
+                background-position: left center;
+            }
+
+            &::after {
+                background-position: right center;
+            }
+
+            &--days,
+            &--hours,
+            &--minutes,
+            &--seconds {
+                flex-direction: column;
+
+                div {
+
+                    p:first-child {
+                        font-size: type.font-size-d(l);
+                    }
+
+                    p:last-child {
+                        font-size: type.font-size-d(sc);
+                    }
+                }
+
+                p:last-child {
+                    font-size: type.font-size-d(mc);
+                }
+            }
+        }
+    }
+
+    .contact {
+        &__form {
+            gap: 1.5rem;
+
+            fieldset:first-child {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, min-content);
+
+                label:first-child {
+                    grid-column: auto / auto;
+                    grid-row: auto / auto;
+                }
+
+                label:nth-child(3) {
+                    grid-column: auto / auto;
+                    grid-row: auto / auto;
+                }
+            }
+        }
+    }
+}

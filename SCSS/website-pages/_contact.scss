@@ -1,0 +1,78 @@
+@use "../general-styles/colors"as clrs;
+@use "../general-styles/padding"as pad;
+@use "../general-styles/typography"as type;
+
+.contact {
+    background-color: clrs.color-theme("1");
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: min-content;
+    gap: 4rem 6rem;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+
+        &--title,
+        &--desc {
+            text-align: start;
+        }
+
+        &--desc {
+            font-weight: type.font-weight(medium);
+        }
+    }
+
+    &__form {
+        display: grid;
+        grid-template-rows: repeat(4, min-content);
+        gap: 2rem;
+
+        fieldset {
+            display: grid;
+            gap: 1rem;
+            grid-template-rows: repeat(2, min-content);
+
+            label {
+                font-size: type.font-size-st(sc);
+                color: rgba(clrs.color-type("2"), 0.4);
+                font-weight: type.font-weight(medium);
+            }
+        }
+
+        fieldset:first-child {
+            grid-template-columns: repeat(2, 1fr);
+
+            label:first-child {
+                grid-column: 1 /2;
+                grid-row: 1 / 2;
+            }
+
+            label:nth-child(3) {
+                grid-column: 2 /3;
+                grid-row: 1 / 2;
+            }
+        }
+
+        input,
+        textarea {
+            font-size: type.font-size-st(sc);
+            padding: pad.padding-st-v(m) pad.padding-st-h(s);
+            border: 1px solid rgba(clrs.color-type("2"), 0.3);
+            resize: none;
+        }
+
+        input[type="submit"] {
+            font-size: type.font-size-st(sc);
+            background-color: clrs.color-theme("3");
+            color: clrs.color-type("1");
+            padding: pad.padding-st-v(m) pad.padding-st-h(s);
+            cursor: pointer;
+
+            &:hover {
+                background-color: clrs.color-theme("2");
+            }
+        }
+    }
+}

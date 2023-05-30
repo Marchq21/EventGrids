@@ -1,0 +1,30 @@
+@media screen and (max-width:500px) {
+    .events {
+        &__agenda {
+            &--event {
+                &__speaker {
+                    flex-direction: column;
+                    align-items: center;
+
+                    >div {
+                        text-align: center;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer {
+        &>div {
+            flex-basis: 100%;
+        }
+
+        &__info {
+            &--desc {
+                text-align: justify;
+            }
+        }
+    }
+
+}

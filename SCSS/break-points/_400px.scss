@@ -1,0 +1,59 @@
+@use "../general-styles/colors"as clrs;
+@use "../general-styles/padding"as pad;
+
+@media screen and (max-width:400px) {
+    .responsive-grid {
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    }
+
+    .testimonials {
+        &__container {
+            &--testimonial {
+                &__personal-info {
+                    &--img {
+                        width: 8rem;
+                        height: 8rem;
+                    }
+                }
+
+                &__para {
+                    text-align: justify;
+                }
+            }
+        }
+    }
+
+    .blogs__container--blog__img {
+        height: 20rem;
+    }
+
+    .blog__page {
+        flex-direction: column-reverse;
+
+        .blog__articles {
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        }
+
+        .blog__popular-feeds {
+            &--search {
+                fieldset {
+                    padding: 0;
+                    background: none;
+                    flex-direction: column;
+                    row-gap: 1rem;
+
+                    input {
+                        background-color: clrs.color-theme("4");
+                    }
+
+                    input,
+                    button {
+                        width: 100%;
+                        padding: pad.padding-st-v(s) pad.padding-st-h(xs);
+                    }
+                }
+            }
+        }
+
+    }
+}

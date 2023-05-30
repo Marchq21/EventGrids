@@ -1,0 +1,96 @@
+@use "../general-styles/colors"as clrs;
+@use "../general-styles/padding"as pad;
+@use "../general-styles/typography"as type;
+
+.speakers {
+
+    &__container {
+        &--speaker {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            grid-template-rows: repeat(9, min-content) 2rem repeat(2, min-content);
+            position: relative;
+            overflow: hidden;
+
+            &__img {
+                grid-column: 1 / -1;
+                grid-row: 1 / 10;
+
+                img {
+                    border-radius: 0.5rem;
+                }
+            }
+
+            &__name {
+                grid-column: 2 / -1;
+                grid-row: 11 / 12;
+            }
+
+            &__role {
+                grid-column: 2 / -1;
+                grid-row: 12 / 13;
+            }
+
+            &__social {
+                position: absolute;
+                display: grid;
+                grid-template-columns: repeat(4, 4rem);
+                gap: 1.5rem;
+                bottom: 8rem;
+                left: 50%;
+                transform: translateX(-50%);
+                transition: all .35s ease-in-out;
+
+                a {
+                    display: block;
+                    color: clrs.color-type("1");
+                    font-size: type.font-size-st(m);
+                    padding: calc( pad.padding-st-v(s) - 0.5rem);
+                    text-align: center;
+                    border-radius: 0.5rem;
+                    opacity: 0.8;
+                }
+
+                li:first-child a {
+                    background-color: clrs.color-social(facebook);
+                }
+
+                li:nth-child(2) a {
+                    background-color: clrs.color-social(twitter);
+                }
+
+                li:nth-child(3) a {
+                    background-color: clrs.color-social(linkedin);
+                }
+
+                li:last-child a {
+                    background-color: clrs.color-social(instagram);
+                }
+            }
+
+            @media (hover) {
+                &__social {
+                    left: -50%;
+                    opacity: 0;
+                }
+
+                &:hover &__social {
+                    left: 50%;
+                    opacity: 1;
+                }
+            }
+
+        }
+
+    }
+
+    &__link {
+        color: clrs.color-type("1");
+        background-color: clrs.color-theme("2");
+        margin-top: 3rem;
+
+        &:hover {
+            background-color: clrs.color-theme("3");
+        }
+    }
+}

@@ -1,0 +1,36 @@
+@use "../general-styles/padding"as pad;
+@use "../general-styles/typography"as type;
+
+@media screen and (max-width:800px) {
+
+    .responsive-grid {
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 40rem));
+        justify-content: center;
+    }
+
+    .sec-title {
+        font-size: type.font-size-st(mc);
+    }
+
+    .footer {
+        &>div {
+            flex-basis: 40%;
+        }
+    }
+
+    .blog__page {
+        flex-direction: column-reverse;
+
+        .blog__popular-feeds {
+            &--search {
+                padding: pad.padding-st-v(l) pad.padding-st-h(s);
+            }
+        }
+
+    }
+
+    .contact {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, min-content);
+    }
+}

@@ -1,0 +1,22 @@
+@use "../general-styles/colors"as clrs;
+
+.pricing-page {
+    & .pricing {
+        background-image: none;
+        background-color: clrs.color-theme("1");
+
+        &__mini-title {
+            color: clrs.color-type("3");
+
+            &::before,
+            &::after {
+                background-color: clrs.color-theme("2");
+            }
+        }
+
+        &__title,
+        &__desc {
+            color: clrs.color-type("2");
+        }
+    }
+}

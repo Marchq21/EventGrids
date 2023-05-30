@@ -1,0 +1,84 @@
+@use "../general-styles/colors"as clrs;
+@use "../general-styles/padding"as pad;
+@use "../general-styles/typography"as type;
+
+.blogs {
+    background-color: clrs.color-theme("1");
+
+    &__container {
+        &--blog {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            background-color: clrs.color-theme("4");
+            padding: pad.padding-st-v(l) pad.padding-st-h(s) pad.padding-st-v(lc);
+            transition: all .25s ease-in-out;
+            box-shadow: 4px 4px 16px rgba(clrs.color-type("5"), 0.3);
+            position: relative;
+            border-radius: .4rem;
+
+            &:hover {
+                box-shadow: none;
+                transform: scale(0.97);
+            }
+
+            &__date {
+                position: absolute;
+                top: 3rem;
+                left: 3rem;
+                color: clrs.color-type("1");
+                background-color: clrs.color-theme("2");
+                padding: pad.padding-st-v(s);
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                border-radius: inherit;
+                transition: inherit;
+
+                &:hover {
+                    background-color: clrs.color-theme("3");
+                }
+
+                span:first-child {
+                    font-size: type.font-size-st(m);
+                }
+
+                span:last-child {
+                    font-size: type.font-size-st(sc);
+                    font-weight: type.font-weight(light);
+                }
+            }
+
+            &__img {
+                height: 24rem;
+            }
+
+            &__category {
+                font-size: type.font-size-st(sc);
+                color: clrs.color-type("4");
+                transition: inherit;
+
+                &:hover {
+                    color: clrs.color-type("3");
+                }
+            }
+
+            &__title {
+                line-height: 1.2;
+            }
+
+            &__para {
+                font-weight: type.font-weight(regular);
+            }
+
+            &__link {
+                align-self: flex-start;
+                background-color: clrs.color-theme("3");
+
+                &:hover {
+                    background-color: clrs.color-theme("2");
+                }
+            }
+        }
+    }
+}

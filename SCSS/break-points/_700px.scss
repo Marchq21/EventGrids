@@ -1,0 +1,42 @@
+@use "../general-styles/padding"as pad;
+
+@media screen and (max-width:700px) {
+    .sec-padd {
+        padding: pad.padding-d-v("sc") pad.padding-d-h("s");
+    }
+
+    .about {
+        flex-direction: column-reverse;
+
+        &__img,
+        &__content {
+            flex-basis: auto;
+        }
+    }
+
+    .events {
+        &__agenda {
+            &--event {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(3, min-content);
+                gap: 3rem;
+
+                &__timing,
+                &__speaker,
+                &__read-more {
+                    justify-self: center;
+                    grid-column: auto;
+                    grid-row: auto;
+                }
+            }
+        }
+    }
+
+    .footer {
+        &__copy-rights {
+            & p {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}

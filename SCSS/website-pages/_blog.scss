@@ -1,0 +1,104 @@
+@use "../general-styles/colors"as clrs;
+@use "../general-styles/padding"as pad;
+@use "../general-styles/typography"as type;
+
+.blog__page {
+    display: flex;
+    gap: 3rem;
+
+    .blog__articles {
+        grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+        gap: 1rem;
+        align-content: start;
+    }
+
+    .blog__popular-feeds {
+        align-self: start;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        &--search {
+            background-color: clrs.color-theme("5");
+            padding: pad.padding-st-v(lc) pad.padding-st-h(l);
+            border-radius: 0.5rem;
+
+            fieldset {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1rem;
+                padding: pad.padding-st-v(s) pad.padding-st-h(xs) pad.padding-st-v(s) 0;
+                background-color: clrs.color-theme("4");
+
+                input,
+                button {
+                    font-size: type.font-size-st(sc);
+                }
+
+                input {
+                    flex-grow: 1;
+                    padding: pad.padding-st-v(s) pad.padding-st-h(xs);
+                }
+
+                button {
+                    border: none;
+                    outline: none;
+                    padding: pad.padding-st-v(s) pad.padding-st-h(xs);
+                    background-color: clrs.color-theme("3");
+                    color: clrs.color-type("1");
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: clrs.color-theme("2");
+                    }
+                }
+            }
+        }
+
+        &--content {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            padding: pad.padding-st-v(lc) pad.padding-st-h(l);
+            background-color: clrs.color-theme("5");
+            border-radius: 0.5rem;
+
+            &__title {
+                color: clrs.color-type("1");
+            }
+
+            &__feed {
+                display: grid;
+                grid-template-columns: repeat(3, 10rem);
+                grid-template-rows: repeat(2, 4rem);
+                gap: 1.5rem;
+
+                &--img {
+                    grid-column: 1 / 2;
+                    grid-row: 1 / 3;
+
+                    img {
+                        border-radius: 0.5rem;
+                    }
+                }
+
+                &--desc {
+                    grid-column: 2 / 4;
+                    grid-row: 1 / 2;
+                    color: clrs.color-type("1");
+                }
+
+                &--date {
+                    grid-column: 2 / 4;
+                    grid-row: 2 / 3;
+                    align-self: end;
+                    justify-self: end;
+                    font-size: type.font-size-st(sc);
+                    color: clrs.color-type("1");
+                }
+
+            }
+        }
+    }
+}

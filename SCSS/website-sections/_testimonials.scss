@@ -1,0 +1,81 @@
+@use "../general-styles/colors"as clrs;
+@use "../general-styles/padding"as pad;
+@use "../general-styles/typography"as type;
+@use "../general-styles/gradients"as grad;
+
+.testimonials {
+    background-image: grad.gradient(gradient-primary);
+
+    &__mini-title,
+    &__title,
+    &__desc {
+        color: clrs.color-type("1");
+    }
+
+    &__mini-title {
+
+        &::before,
+        &::after {
+            background-color: clrs.color-theme("4");
+        }
+    }
+
+    &__container {
+        &--testimonial {
+            display: flex;
+            flex-direction: column;
+            row-gap: 2rem;
+            background-color: clrs.color-theme("4");
+            padding: pad.padding-st-v(xl) pad.padding-st-h(l);
+            border-radius: .5rem;
+
+            &__personal-info {
+                display: flex;
+                align-items: center;
+                gap: 1.3rem;
+
+                &--img {
+                    width: 10rem;
+                    height: 10rem;
+                    position: relative;
+                    z-index: 1;
+
+                    &::before {
+                        position: absolute;
+                        content: "";
+                        top: -5%;
+                        left: -5%;
+                        width: 110%;
+                        height: 110%;
+                        background-image: grad.gradient(gradient-primary);
+                        border-radius: 50%;
+                        z-index: -1;
+                    }
+
+                    img {
+                        border-radius: 50%;
+                        object-position: 70% center;
+                    }
+                }
+
+                >div {
+                    div:last-child {
+                        display: flex;
+                        gap: 0.2rem;
+                        margin-top: .8rem;
+
+                        i {
+                            font-size: calc(type.font-size-st(sc) - 0.2rem);
+                            color: rgb(255, 165, 0);
+                        }
+                    }
+                }
+            }
+
+            &__para {
+                margin-bottom: 0;
+                text-align: left;
+            }
+        }
+    }
+}
